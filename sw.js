@@ -1,5 +1,5 @@
-const CACHE='grazymusic-player-0011-shell';
-const ASSETS=['./index.html','./style.css?v=0011','./app.js?v=0011','./version.json','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png'];
+const CACHE='grazymusic-player-0012-shell';
+const ASSETS=['./index.html','./style.css?v=0012','./app.js?v=0012','./version.json','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png'];
 const PLAYLIST_CACHE='grazymusic-playlist-offline-v1';
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil((async()=>{

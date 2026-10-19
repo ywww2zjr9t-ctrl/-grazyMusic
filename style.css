@@ -40,3 +40,9 @@ header{display:flex;align-items:center;justify-content:space-between;flex:none;m
 .app.cover-expanded .cover img{width:100%;height:100%;object-fit:contain}
 .app.cover-expanded .controls{flex:none;padding-bottom:clamp(8px,2dvh,20px)}
 @media(max-height:530px){.app.cover-expanded .cover{width:min(calc(100vw - 28px),calc(100dvh - 160px),570px);height:auto}}
+
+/* 001.2: Cover ohne zusätzlichen weißen Hintergrund oder Innenabstand. */
+.cover{background:transparent;box-shadow:none;border-radius:12px;padding:0}
+.cover img{object-fit:cover;border-radius:12px}
+.app.cover-expanded .cover img{object-fit:cover}
+.mini-cover{background:transparent;padding:0}

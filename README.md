@@ -1,17 +1,19 @@
-# grazyMusic – Musikplayer Version 001.1
+# grazyMusic – Musikplayer Version 001.2
 
-Eigenständige Progressive Web App, abgeleitet aus der funktionierenden **wir 004.3**. Wiedergabe, kompakte Playlist, Favoriten, Offline-Downloads, Löschbestätigung, Sammeldownload, Pull-to-Refresh und GitHub-Actions-Playlist-Erstellung bleiben in ihrer Bedienlogik unverändert. Name, freundliches Farbschema, Icons, PWA-Identität und getrennte Speicher-/Cache-Namen stammen aus 001.0. Neu in 001.1 ist die große Coveransicht durch Antippen des Covers; erneutes Antippen führt zur Playlist zurück. Die Wiedergabe läuft unverändert weiter.
+Eigenständige Progressive Web App, abgeleitet aus der funktionierenden **wir 004.3**. Wiedergabe, kompakte Playlist, Favoriten, Offline-Downloads, Löschbestätigung, Sammeldownload, Pull-to-Refresh und GitHub-Actions-Playlist-Erstellung bleiben in ihrer Bedienlogik unverändert. Name, freundliches Farbschema, Icons, PWA-Identität und getrennte Speicher-/Cache-Namen stammen aus 001.0. Neu seit 001.1 ist die große Coveransicht durch Antippen des Covers; erneutes Antippen führt zur Playlist zurück. Die Wiedergabe läuft unverändert weiter.
+
+Version 001.2 entfernt weiße Außenränder aus den App-Icons und den zusätzlichen weißen Cover-Hintergrund. Bedienung und Wiedergabelogik bleiben unverändert.
 
 ## Neues Repository einrichten
 
-1. Neues **öffentliches** GitHub-Repository anlegen, empfohlen: `grazyMusic` (nicht das Repository von `wir` verwenden).
+1. Neues **öffentliches** GitHub-Repository anlegen, bestehend: `-grazyMusic` (nicht das Repository von `wir` verwenden).
 2. **Alle Dateien und Ordner aus diesem ZIP** in die Wurzel des neuen Repositories hochladen, einschließlich `.github/workflows/update-playlist.yml` (versteckten Ordner nicht übersehen).
 3. In **Settings → Pages** die Veröffentlichung über **Deploy from a branch**, `main`, `/ (root)` aktivieren.
 4. In **Settings → Actions → General → Workflow permissions** nötigenfalls **Read and write permissions** aktivieren, damit der Workflow `playlist.json` committen darf.
-5. Später Musikdateien in `audio/` hochladen. Der Workflow erstellt `playlist.json` automatisch. Der erste Upload einer Audiodatei legt den Ordner an; `audio/` und `playlist.json` sind daher bewusst noch nicht im Paket.
+5. Später Musikdateien in `audio/` hochladen. Der Workflow erstellt `playlist.json` automatisch. Der Ordner `audio/` enthält zunächst nur die Platzhalterdatei `.gitkeep`; `playlist.json` wird erst durch den Workflow erzeugt.
 6. Auf dem Gerät die neue Pages-Adresse aufrufen und als Web-App zum Home-Bildschirm hinzufügen. Die bestehende App `wir` bleibt separat.
 
-## Vollständiger Upload – 12 Dateien
+## Vollständiger Inhalt – 13 Dateien
 
 - `index.html`
 - `style.css`
@@ -19,14 +21,19 @@ Eigenständige Progressive Web App, abgeleitet aus der funktionierenden **wir 00
 - `sw.js`
 - `manifest.webmanifest`
 - `version.json`
-- `generate_playlist.py` (inhaltlich unverändert)
+- `generate_playlist.py`
 - `README.md`
 - `icons/icon-192.png`
 - `icons/icon-512.png`
 - `icons/apple-touch-icon.png`
-- `.github/workflows/update-playlist.yml` (inhaltlich unverändert)
+- `.github/workflows/update-playlist.yml`
+- `audio/.gitkeep`
 
-**Unverändert aus `wir` 004.3:** `generate_playlist.py`, `.github/workflows/update-playlist.yml`; außerdem bleiben HTML-Struktur, Wiedergabesteuerung und Playlist-Logik erhalten. **Gegenüber 001.0 geändert:** `index.html`, `style.css`, `app.js`, `sw.js`, `version.json`, `README.md`. **Unverändert:** `manifest.webmanifest`, `generate_playlist.py`, alle drei Icons und `.github/workflows/update-playlist.yml`.
+**Gegenüber 001.1 ersetzen:** `index.html`, `style.css`, `sw.js`, `version.json`, `README.md` und die drei Dateien unter `icons/`.
+
+**Gegenüber 001.1 unverändert:** `app.js`, `manifest.webmanifest`, `generate_playlist.py`, `.github/workflows/update-playlist.yml`.
+
+**Neu im vollständigen Paket:** `audio/.gitkeep` als Platzhalter für den Audioordner. Wenn `audio/` bereits auf GitHub existiert, vorhandene MP3-Dateien und `playlist.json` nicht löschen oder überschreiben.
 
 ## Hinweise
 
